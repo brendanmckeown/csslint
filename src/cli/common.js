@@ -13,6 +13,7 @@ function cli(api) {
         "help"        : { "format" : "",                       "description" : "Displays this information." },
         "format"      : { "format" : "<format>",               "description" : "Indicate which format to use for output." },
         "list-rules"  : { "format" : "",                       "description" : "Outputs all of the rules available." },
+        "add-rules"   : { "format" : "<file>",                 "description" : "Add custom rules to include." },
         "quiet"       : { "format" : "",                       "description" : "Only output when errors are present." },
         "errors"      : { "format" : "<rule[,rule]+>",         "description" : "Indicate which rules to include as errors." },
         "warnings"    : { "format" : "<rule[,rule]+>",         "description" : "Indicate which rules to include as warnings." },
@@ -206,6 +207,15 @@ function cli(api) {
         api.print(toPrint);
     }
 
+
+    function addRules(options) {
+        if (options.hasOwnProperty("add-rules")) {
+            var rulesModule = api.getFullPath(options["add-rules"]);
+            require(rulesModule);
+        }
+    }
+
+
     /**
      * Given an Array of filenames, print wrapping output and process them.
      * @param files {Array} filenames list
@@ -234,6 +244,7 @@ function cli(api) {
                     api.print(output);
                 }
 
+                addRules(options);
 
                 files.forEach(function(file) {
                     if (exitCode === 0) {
