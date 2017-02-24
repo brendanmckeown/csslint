@@ -3,7 +3,7 @@
  * provides environment-specific functionality.
  */
 
-/* global JSON */
+/* global JSON, require */
 /* exported cli */
 
 function cli(api) {
@@ -208,6 +208,11 @@ function cli(api) {
     }
 
 
+    /**
+     * Checks for the "add-rules" option and imports the given file
+     * @param options {Object} options object
+     * @param {void}
+     */
     function addRules(options) {
         if (options.hasOwnProperty("add-rules")) {
             var rulesModule = api.getFullPath(options["add-rules"]);
