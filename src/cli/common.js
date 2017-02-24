@@ -13,7 +13,7 @@ function cli(api) {
         "help"        : { "format" : "",                       "description" : "Displays this information." },
         "format"      : { "format" : "<format>",               "description" : "Indicate which format to use for output." },
         "list-rules"  : { "format" : "",                       "description" : "Outputs all of the rules available." },
-        "add-rules"   : { "format" : "<file>",                 "description" : "Add custom rules to include." },
+        "add-rules"   : { "format" : "<file>",                 "description" : "Import custom rules from a module file." },
         "quiet"       : { "format" : "",                       "description" : "Only output when errors are present." },
         "errors"      : { "format" : "<rule[,rule]+>",         "description" : "Indicate which rules to include as errors." },
         "warnings"    : { "format" : "<rule[,rule]+>",         "description" : "Indicate which rules to include as warnings." },
